@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e778a47182830ab4eb30029361da585b, type: 3}
   m_Name: TimeAbilityBarData
   m_EditorClassIdentifier: 
-  ValueChanged: {fileID: 0}
-  _value: 50
+  ValueChanged: {fileID: 11400000, guid: 43768b86cc5bc604d8d89e1f00b54345, type: 2}
+  initialValue: 100
   MaxValue: 100

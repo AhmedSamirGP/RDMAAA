@@ -15,6 +15,6 @@ public class TestBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bar.Value -= Time.deltaTime * 100;
+        bar.Value -= Time.deltaTime * 20;
     }
 }
