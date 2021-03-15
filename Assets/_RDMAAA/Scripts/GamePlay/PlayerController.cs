@@ -16,7 +16,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     CharacterController controller;
     Animator animator;
-
+    [SerializeField]
+    GameObject camPlayer1; 
+    [SerializeField]
+    GameObject camPlayer2;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -55,11 +58,15 @@ public class PlayerController : MonoBehaviour
             {
                 player1.gameObject.SetActive(false);
                 player2.gameObject.SetActive(true);
+                camPlayer1.SetActive(false);
+                camPlayer2.SetActive(true);
             }
             else
             {
                 player1.gameObject.SetActive(true);
                 player2.gameObject.SetActive(false);
+                camPlayer1.SetActive(true);
+                camPlayer2.SetActive(false);
 
             }
             Debug.Log("not NUll");
