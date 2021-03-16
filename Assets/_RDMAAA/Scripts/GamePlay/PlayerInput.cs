@@ -13,7 +13,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     bool ability;
     CharacterController controller;
-
+    [SerializeField]
+    JetPackSO jetSO;
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -55,9 +56,9 @@ public class PlayerInput : MonoBehaviour
         {
             //switching
         }
-        if (inputManager.UsePlayerAbility())
+        if (inputManager.UseJetPack())
         {
-            //use ability
+            jetSO.canJet = true;
         }
         this.movement.vector = moving;
     }

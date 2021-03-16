@@ -20,8 +20,11 @@ public class PlayerController : MonoBehaviour
     GameObject camPlayer1; 
     [SerializeField]
     GameObject camPlayer2;
+    [SerializeField]
+    JetPackSO jetSO;
     void Start()
     {
+        jetSO.grounded = true;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -34,7 +37,17 @@ public class PlayerController : MonoBehaviour
     {
 
         if (movement.vector.y > 0)
+        {
             StartCoroutine(fall());
+            jetSO.canJump = false;
+        }
+        else
+            jetSO.canJump = true;
+        if (controller.isGrounded)
+            jetSO.grounded = true;
+        else
+            jetSO.grounded = false;
+
     }
     void FixedUpdate()
     {
