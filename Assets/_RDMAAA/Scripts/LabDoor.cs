@@ -1,23 +1,37 @@
+using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(SphereCollider))]
+[RequireComponent(typeof(Rigidbody))]
 public class LabDoor : InteractableObject
 {
+    float timer = 3f;
     public new void Interact()
     {
-        if (interactOnce) return;
-
-        Debug.Log("door interacted");
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(0, 95, 0), transform.up), Time.deltaTime * 3f);
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 95, 0));
+        if (!canInteract) return;
+        StartCoroutine(OpenDoorSlerp());
+        // TODO: PLAY SFX
+        if (interactionType == InteractionType.Once)
+        {
+            canInteract = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!canInteract) return;
+        if (other.CompareTag("Player")) // TODO: check player 2 tag
         {
             Interact();
         }
     }
 
+    IEnumerator OpenDoorSlerp()
+    {
+        while (timer > 0)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(new Vector3(0, -95, 0)), Time.deltaTime * 3f);
+            yield return new WaitForSeconds(Time.deltaTime);
+            timer -= Time.deltaTime;
+        }
+    }
 }

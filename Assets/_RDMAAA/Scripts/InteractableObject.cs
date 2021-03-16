@@ -1,11 +1,17 @@
 using UnityEngine;
 
+public enum InteractionType
+{
+    Once,
+    Multiple
+}
 
-public class InteractableObject : MonoBehaviour, IInteractable
+public abstract class InteractableObject : MonoBehaviour, IInteractable
 {
     [SerializeField]
-    protected bool interactOnce = false;
-    //protected float interactionRadius = 3f;
+    protected InteractionType interactionType;
+    [SerializeField]
+    protected bool canInteract = true;
 
     public void Interact()
     {
