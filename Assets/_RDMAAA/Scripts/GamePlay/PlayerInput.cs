@@ -13,10 +13,13 @@ public class PlayerInput : MonoBehaviour
     [SerializeField]
     bool ability;
     CharacterController controller;
-
+    [SerializeField]
+    JetPackSO jetSO;
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        jetSO.canJump = false;
+        jetSO.canJet = false;
         //getting abilities components
         if (null == inputManager)
         {
@@ -48,16 +51,16 @@ public class PlayerInput : MonoBehaviour
         }
         if (inputManager.Jump())
         {
-            //check if th player is grounded
-            moving.y++;
+            jetSO.canJump = true;
         }
-        if (inputManager.SwitchPlayer())
+        if (inputManager.UseJetPack())
         {
-            //switching
+           // Debug.Log("can jet");
+            jetSO.canJet = true;
         }
-        if (inputManager.UsePlayerAbility())
+        if (inputManager.useTime())
         {
-            //use ability
+           ////
         }
         this.movement.vector = moving;
     }
