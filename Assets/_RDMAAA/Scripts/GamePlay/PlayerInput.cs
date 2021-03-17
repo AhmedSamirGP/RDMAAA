@@ -18,6 +18,8 @@ public class PlayerInput : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        jetSO.canJump = false;
+        jetSO.canJet = false;
         //getting abilities components
         if (null == inputManager)
         {
@@ -49,16 +51,16 @@ public class PlayerInput : MonoBehaviour
         }
         if (inputManager.Jump())
         {
-            //check if th player is grounded
-            moving.y++;
-        }
-        if (inputManager.SwitchPlayer())
-        {
-            //switching
+            jetSO.canJump = true;
         }
         if (inputManager.UseJetPack())
         {
+           // Debug.Log("can jet");
             jetSO.canJet = true;
+        }
+        if (inputManager.useTime())
+        {
+           ////
         }
         this.movement.vector = moving;
     }

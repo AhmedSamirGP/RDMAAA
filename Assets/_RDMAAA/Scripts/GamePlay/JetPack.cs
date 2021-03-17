@@ -5,7 +5,7 @@ using UnityEngine;
 public class JetPack : MonoBehaviour
 {
     [SerializeField]
-    float jetForce; // how powerfull the jetpack
+    float jetForce=500; // how powerfull the jetpack
     [SerializeField]
     float jetWait;  //how long it's going to take before needing to be recovered
     [SerializeField]
@@ -29,30 +29,23 @@ public class JetPack : MonoBehaviour
     }
 
 
-    void Update()
-    {
 
-    }
     void FixedUpdate()
     {
 
         // if() jetpack butting hitted getkey space bs w 5ly eljump get key down
         //if can jump and not grounded
         if (jetSO.canJet)
-
         {
-            Debug.Log("Git");
-            if (jetSO.canJump & !jetSO.grounded)
-                canJet = true;
-            if (jetSO.grounded)
-                canJet = false;
+          //  Debug.Log("Git");
 
-            jetSO.canJet = canJet;
-
-            if (canJet && jetSO.canJet && currentFeul > 0)
+            if (!jetSO.grounded && jetSO.canJet && currentFeul > 0)
             {
-                Vector3 value = Vector3.up * jetForce * Time.fixedDeltaTime;
-                rig.AddForce(value, ForceMode.Acceleration);
+                //Debug.Log("jetting");
+                Vector3 value = Vector3.forward * jetForce ;
+                // Debug.Log(value);
+                  rig.AddForce(value, ForceMode.Acceleration);
+                //rig.AddForce(0, 0, 500);
                 currentFeul = Mathf.Max(0, currentFeul - Time.fixedDeltaTime);
                 //update current fuel in SO
                 uiBar.Value = currentFeul;

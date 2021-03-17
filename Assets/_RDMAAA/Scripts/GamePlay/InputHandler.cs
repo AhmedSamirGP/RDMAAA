@@ -16,8 +16,6 @@ public class InputHandler : IInputManager
     [SerializeField]
     KeyCode jumpCode;
     [SerializeField]
-    KeyCode switchCode;
-    [SerializeField]
     KeyCode jetCode;
     [SerializeField]
     KeyCode timeCode;
@@ -47,14 +45,13 @@ public class InputHandler : IInputManager
         return Input.GetKey(jumpCode);
     }
 
-    public override bool SwitchPlayer()
-    {
-        return Input.GetKey(switchCode);
-    }
-
     public override bool UseJetPack()
     {
         return Input.GetKey(jetCode);
     }
 
+    public override bool useTime()
+    {
+        return Input.GetKey(timeCode);
+    }
 }
