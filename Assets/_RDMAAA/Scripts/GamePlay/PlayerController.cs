@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     Vector3 innerVelocity;
     void Start()
     {
-        player2.SetActive(false);
+        //player2.SetActive(false);
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
         jetSO.canJump = false;

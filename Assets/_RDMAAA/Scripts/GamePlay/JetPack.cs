@@ -15,7 +15,6 @@ public class JetPack : MonoBehaviour
 
     float currentFeul;
     float currentRecovery;
-    bool canJet = false;
     Rigidbody rig;
     [SerializeField]
     JetPackSO jetSO;
