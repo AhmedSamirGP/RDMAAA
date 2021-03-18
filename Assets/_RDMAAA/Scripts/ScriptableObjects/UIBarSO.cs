@@ -26,7 +26,7 @@ public class UIBarSO : ScriptableObject, InitializibleSO<float>
             {
                 _value = value;
                 if (ValueChanged)
-                    ValueChanged.raise();
+                    ValueChanged.Raise();
             }
         }
     }
@@ -44,6 +44,6 @@ public class UIBarSO : ScriptableObject, InitializibleSO<float>
 
     public void SetValue(float initValue)
     {
-        Value = initValue;
+        _value = initValue;
     }
 }

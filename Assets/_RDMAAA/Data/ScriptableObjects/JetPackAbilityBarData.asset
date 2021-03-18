@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: JetPackAbilityBarData
   m_EditorClassIdentifier: 
   ValueChanged: {fileID: 11400000, guid: 7cfb2cc08e4db3946924cd0789eb8c5c, type: 2}
-  initialValue: 100
-  MaxValue: 100
+  initialValue: 20
+  MaxValue: 30

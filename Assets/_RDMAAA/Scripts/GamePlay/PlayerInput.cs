@@ -69,8 +69,13 @@ public class PlayerInput : MonoBehaviour
         {
             // Debug.Log("can jet");
             jetSO.canJet = true;
+            // jetSO.grounded = false;
         }
-        if (inputManager.useTime() && timeBar.Value >= timeUsage * Time.deltaTime)
+        else
+        {
+            jetSO.canJet = false;
+        }
+        if (!isJet && inputManager.useTime() && timeBar.Value >= timeUsage * Time.deltaTime)
         {
             timeSlowSO.EnemySpeed = timeScale;
             timeBar.Value -= timeUsage * Time.deltaTime;
@@ -79,15 +84,15 @@ public class PlayerInput : MonoBehaviour
         {
             ResetEnemySO();
         }
-        if (inputManager.SwitchPlayer()) 
+        if (inputManager.SwitchPlayer())
         {
-            if (isJet) 
+            if (isJet)
             {
-                onSwitchJetPlayer.raise();
+                onSwitchJetPlayer.Raise();
             }
             else
             {
-                onSwitchTimePlayer.raise();
+                onSwitchTimePlayer.Raise();
             }
         }
         this.movement.vector = moving;

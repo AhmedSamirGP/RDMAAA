@@ -15,15 +15,12 @@ public class EventSO : ScriptableObject
     {
         listeners.Remove(listener);
     }
-    public void raise()
+    public void Raise()
     {
-        foreach (var listener in listeners)
+        var currListeners = new List<SOEventListener>(listeners);
+        foreach (var listener in currListeners)
         {
             listener.onEventRaised();
-            if (listeners.Count == 0) 
-            {
-                break;
-            }
         }
     }
 }

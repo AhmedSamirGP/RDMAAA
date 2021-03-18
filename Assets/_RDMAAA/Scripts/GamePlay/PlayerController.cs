@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             jetSO.grounded = true;
+            jetSO.canJet = false;
             // Debug.Log("Grounded");
             if (jetSO.canJump)
             {
@@ -73,16 +74,16 @@ public class PlayerController : MonoBehaviour
             if (player1.gameObject.activeInHierarchy == true)
             {
                 player2.SetActive(true);
-                player1.SetActive(false);
                 camPlayer2.SetActive(true);
                 camPlayer1.SetActive(false);
+                player1.SetActive(false);
             }
             else
             {
                 player1.SetActive(true);
                 camPlayer1.SetActive(true);
-                player2.SetActive(false);
                 camPlayer2.SetActive(false);
+                player2.SetActive(false);
             }
         }
     }
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            death.raise();
+            death.Raise();
         }
     }
     private void OnCollisionExit(Collision collision)
