@@ -11,9 +11,11 @@ public class PeriodicEnemy : MonoBehaviour
     [SerializeField]
     EnemySO Data;
 
-    bool forward = true;
+    public bool active = true;
     [SerializeField]
     float HalfCycleTime = 2;
+
+    bool forward = true;
     float t = 0;
     Vector3 StartPosition;
     Vector3 EndPosition;
@@ -28,6 +30,7 @@ public class PeriodicEnemy : MonoBehaviour
 
     void Update()
     {
+        if (!active) return;
         t += Time.deltaTime / (Data.EnemySpeed * HalfCycleTime);
         if (forward)
         {
