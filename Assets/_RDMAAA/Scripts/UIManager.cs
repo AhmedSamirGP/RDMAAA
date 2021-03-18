@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class UIManager : MonoBehaviour
     GameObject JetbackBar;
     [SerializeField]
     GameObject TimeSlowBar;
+    [SerializeField]
+    GameObject LosePanel;
     private void Start()
     {
         Jetpack = !Jetpack;
@@ -24,5 +27,13 @@ public class UIManager : MonoBehaviour
         Jetpack = !Jetpack;
         JetbackBar.SetActive(Jetpack);
         TimeSlowBar.SetActive(!Jetpack);
+    }
+    public void OpenLosePanel()
+    {
+        LosePanel.SetActive(true);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

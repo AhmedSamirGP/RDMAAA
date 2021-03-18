@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class UIBarSO : ScriptableObject
+public class UIBarSO : ScriptableObject, InitializibleSO<float>
 {
     [SerializeField]
     EventSO ValueChanged;
@@ -35,5 +35,15 @@ public class UIBarSO : ScriptableObject
     public float getPercentage()
     {
         return Value / MaxValue;
+    }
+
+    public float GetInitialValue()
+    {
+        return initialValue;
+    }
+
+    public void SetValue(float initValue)
+    {
+        Value = initValue;
     }
 }
