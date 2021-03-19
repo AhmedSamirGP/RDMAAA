@@ -22,7 +22,7 @@ public class SwingingAxe : MonoBehaviour
         {
             if (bUp)
             {
-                Degree = EaseOut(4 * t / (Duration * timeSlowSO.EnemySpeed)) * MaxAngle;
+                Degree = EaseOut(4 * t * timeSlowSO.EnemySpeed / (Duration )) * MaxAngle;
                 if (Degree >= MaxAngle)
                 {
                     bUp = false;
@@ -32,7 +32,7 @@ public class SwingingAxe : MonoBehaviour
             }
             else
             {
-                Degree = (1 - EaseIn(4 * t / (Duration * timeSlowSO.EnemySpeed))) * -MaxAngle;
+                Degree = (1 - EaseIn(4 * t * timeSlowSO.EnemySpeed / (Duration ))) * -MaxAngle;
                 if (Degree >= 0)
                 {
                     bUp = true;
@@ -45,7 +45,7 @@ public class SwingingAxe : MonoBehaviour
         {
             if (bUp)
             {
-                Degree = (EaseOut(4 * t / (Duration * timeSlowSO.EnemySpeed))) * -MaxAngle;
+                Degree = (EaseOut(4 * t * timeSlowSO.EnemySpeed / (Duration ))) * -MaxAngle;
                 if (Degree <= -MaxAngle)
                 {
                     bUp = false;
@@ -55,7 +55,7 @@ public class SwingingAxe : MonoBehaviour
             }
             else
             {
-                Degree = (1 - EaseIn(4 * t / (Duration * timeSlowSO.EnemySpeed))) * MaxAngle;
+                Degree = (1 - EaseIn(4 * t * timeSlowSO.EnemySpeed / (Duration ))) * MaxAngle;
                 if (Degree <= 0)
                 {
                     bUp = true;

@@ -31,7 +31,7 @@ public class PeriodicEnemy : MonoBehaviour
     void Update()
     {
         if (!active) return;
-        t += Time.deltaTime / (Data.EnemySpeed * HalfCycleTime);
+        t += Time.deltaTime * Data.EnemySpeed / HalfCycleTime;
         if (forward)
         {
             if (t >= 1)

@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(grounds.Count);
         //Debug.Log(controller.isGrounded ? "GROUNDED" : "NOT GROUNDED");
         innerVelocity = movement.vector * speed;
         innerVelocity.y = rb.velocity.y;
@@ -58,8 +57,6 @@ public class PlayerController : MonoBehaviour
             if (jetSO.canJump)
             {
                 innerVelocity = jumpForce * Vector3.up;
-                // Debug.Log(rb.velocity);
-                // Debug.Log("jumppppppppppppppppp");
             }
         }
         else

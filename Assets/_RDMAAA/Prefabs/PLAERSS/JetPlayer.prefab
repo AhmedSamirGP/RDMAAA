@@ -106,7 +106,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &4266089933983001340
 CapsuleCollider:
@@ -178,8 +178,8 @@ MonoBehaviour:
   jetForce: 5
   jetWait: 10
   jetRecovery: 0
-  max_fuel: 10
   jetSO: {fileID: 11400000, guid: 6ab11782f1e5ec14b87dac063d92c788, type: 2}
+  fuelConsumption: 0
   uiBar: {fileID: 11400000, guid: ac69c12a0aec6e74a99bab36e8c470e7, type: 2}
 --- !u!114 &4266089933983001342
 MonoBehaviour:

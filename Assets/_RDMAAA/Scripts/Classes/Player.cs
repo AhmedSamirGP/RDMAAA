@@ -21,10 +21,9 @@ public class Player : MonoBehaviour
 
         playerData.speed = speed;
         playerData.gainedPoints = gainedPoints;
-        playerData.state = playerState;    
+        playerData.state = playerState;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerState == false || playerData.state==false) 
