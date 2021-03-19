@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8572497658323315854}
   m_Layer: 0
   m_Name: block_01
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,8 +60,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5972191728477514568, guid: 1221dc1a0688d854790e257f0cce0650, type: 3}
-  - {fileID: 1934832476112516341, guid: 1221dc1a0688d854790e257f0cce0650, type: 3}
+  - {fileID: 2100000, guid: 304e8b0ba798494458b114ee2be88464, type: 2}
+  - {fileID: 2100000, guid: 108dff4c130c64b4f953c9030bb08c20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
